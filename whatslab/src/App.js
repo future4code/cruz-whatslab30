@@ -1,6 +1,28 @@
 import React from "react"
 import "./App.css";
 import Mensagem from "./components/Mensagem"
+import styled from 'styled-components';
+
+const Container = styled.div`
+  max-width: 600px;
+  height: 100vh;
+  border: 1px solid black;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`
+
+const MensagensContainer = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+`
+
+const Negrito = styled.span`
+  font-weight: bold;
+`
 
 class App extends React.Component {
 
@@ -15,45 +37,31 @@ class App extends React.Component {
         nomeRemetente: "Italo:",
         conteudoDaMensagem:"Bom dia!"
       }
-    ]
-
+    ],
    
   }
-
   
 
 render(){
-
-  adicionarMensagem=()=>{
-      const novaMensagem = {
-        nomeRemetente: this.state.nomeRemetente,
-        conteudoDaMensagem: this.state.conteudoDaMensagem,
-      };
-
-      this.setState({
-        mensagens: [...this.state.mensagens, novaMensagem],
-        nomeRemetente: "",
-        conteudoDaMensagem: "",
-      });
-
-  }
-
-  const listaDeMensagens = this.state.mensagens.map((mensagem)=>{
+ 
+  const listaDeMensagens = this.state.mensagens.map((mensagem, index)=>{
 
     return( 
-    <Mensagem
-    nomeRemetente={mensagem.nomeRemetente}
-    conteudoDaMensagem={mensagem.conteudoDaMensagem}
-    />
+    <div key = {index}>
+    <p> <Negrito>{mensagem.nomeRemetente} </Negrito> {': ' + mensagem.conteudoDaMensagem}</p>
+    </div>
     );
   });
+
   return (
-    <div className="app-container">
-      <div>
-        {listaDeMensagens}
-      </div>
-      
-    </div>
+
+    <Container>
+    <MensagensContainer>
+     {listaDeMensagens}
+    </MensagensContainer>
+    <Mensagem adicionarMensagem={this.adicionarMensagem}/>
+    
+  </Container>
   );
   }
 }
