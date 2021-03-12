@@ -24,6 +24,20 @@ class App extends React.Component {
 
 render(){
 
+  adicionarMensagem=()=>{
+      const novaMensagem = {
+        nomeRemetente: this.state.nomeRemetente,
+        conteudoDaMensagem: this.state.conteudoDaMensagem,
+      };
+
+      this.setState({
+        mensagens: [...this.state.mensagens, novaMensagem],
+        nomeRemetente: "",
+        conteudoDaMensagem: "",
+      });
+
+  }
+
   const listaDeMensagens = this.state.mensagens.map((mensagem)=>{
 
     return( 
@@ -37,7 +51,6 @@ render(){
     <div className="app-container">
       <div>
         {listaDeMensagens}
-        
       </div>
       
     </div>
