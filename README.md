@@ -4,4 +4,5 @@
 
 ## Linkk: http://zany-price.surge.sh/
 
-![whatslab](https://user-images.githubusercontent.com/77753437/111003324-ab12be80-8365-11eb-9685-8e53d2fcea28.png)
+![whatslabDemo](https://user-images.githubusercontent.com/77751963/111088806-c0bfe980-8507-11eb-87ee-f4a4f4399a03.png)
+
